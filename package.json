@@ -9,14 +9,15 @@
   },
   "icon": "icon.png",
   "categories": [
-    "Visualization","Other"
+    "Visualization",
+    "Other"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/yeikel16/rive-preview-extension.git"
   },
   "license": "MIT",
-  "bugs": {    
+  "bugs": {
     "url": "https://github.com/yeikel16/rive-preview-extension"
   },
   "main": "./out/extension.js",
@@ -38,8 +39,13 @@
       {
         "id": "rive",
         "extensions": [
-          ".riv"
-        ]
+          ".riv",
+          ".rev"
+        ],
+        "icon": {
+          "dark": "./assets/rive.svg",
+          "light": "./assets/rive.svg"
+        }
       }
     ]
   },
@@ -59,7 +65,8 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "lint": "eslint \"src/**/*.ts\"",
-    "watch": "tsc -w -p ./"
+    "watch": "tsc -w -p ./",
+    "build": "npm run lint && npm run compile"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
