@@ -1,12 +1,261 @@
+@layer base {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	/* Remove default margins */
+	body,
+	h1,
+	h2,
+	h3,
+	h4,
+	p,
+	figure,
+	blockquote,
+	dl,
+	dd {
+		margin: 0;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		text-wrap: balance;
+	}
+
+	p,
+	li,
+	figcaption {
+		max-width: 65ch;
+	}
+
+	/* Reset padding */
+	body,
+	ul,
+	ol {
+		padding: 0;
+	}
+
+	/* Reset list styles */
+	ul,
+	ol {
+		list-style: none;
+	}
+
+	/* Reset link styles */
+	a {
+		background-color: transparent;
+		color: inherit;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	/* Core root defaults */
+	html:focus-within {
+		scroll-behavior: smooth;
+	}
+
+	/* Core body defaults */
+	body {
+		min-height: 100vh;
+		text-rendering: optimizeSpeed;
+		line-height: 1.5;
+		font-family: var(
+				--font,
+				system-ui,
+				-apple-system,
+				Segoe UI,
+				Roboto,
+				Ubuntu,
+				Cantarell,
+				Noto Sans,
+				sans-serif
+			),
+			sans-serif;
+		background-color: var(--base);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		color: var(--text-base);
+	}
+
+	/* Autofill styles */
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+		background-color: inherit;
+		color: inherit;
+		-webkit-text-fill-color: inherit;
+		font-weight: inherit;
+		transition: background-color 5000s ease-in-out,
+			color 5000s ease-in-out;
+	}
+
+	/* Reset focus outlines */
+	:focus {
+		outline: 0.125rem solid transparent;
+		outline-offset: 0.125rem;
+	}
+}
+
+@layer media {
+	img,
+	picture {
+		max-width: 100%;
+		height: auto;
+		object-fit: contain;
+		vertical-align: middle;
+	}
+
+	video {
+		object-fit: cover;
+	}
+}
+
+/* Layout rules */
+@layer layout {
+	footer,
+	main,
+	nav,
+	aside,
+	section,
+	article {
+		container-type: inline-size;
+	}
+
+	[popover] {
+		inset: auto;
+	}
+}
+
+/* Accessibility */
+@layer accessibility {
+	/* Reduced motion for accessibility */
+	@media (prefers-reduced-motion: reduce) {
+		html:focus-within {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms;
+			animation-iteration-count: 1;
+			transition-duration: 0.01ms;
+			scroll-behavior: auto;
+		}
+	}
+}
+
+/* Forms */
+@layer form-elements {
+	button,
+	input:not([type='checkbox'], [type='radio']),
+	textarea,
+	select {
+		font: inherit;
+		margin: 0;
+		padding: 0;
+		background-color: transparent;
+		border: 0;
+		color: inherit;
+		outline: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+
+	/* Reset input types */
+	input[type='search'] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+
+	input[type='number']::-webkit-outer-spin-button,
+	input[type='number']::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	input[type='number'] {
+		-moz-appearance: textfield;
+		appearance: textfield;
+	}
+}
+
 #animationControls button {
-  margin: 5px;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+	padding: 1rem;
+	background-color: #ffd90000;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+#animationControls {
+	display: flex;
+	flex-direction: column;
+	background-color: #222;
+	border-radius: 0.875rem;
+	border: 0.125rem solid #0b0b0b;
+}
+#riveRuntime {
+	margin-top: 1.25rem;
+	padding-inline: 1.25rem;
 }
 #animationControls button:hover {
-  background-color: #0056b3;
+	background-color: #2d2c2c;
+}
+
+#riveGrid {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	max-width: 1280px;
+	margin-inline: auto;
+	gap: 1.5rem;
+}
+#animationHeader {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 1.25rem;
+	color: #fff;
+	padding: 1.5rem;
+}
+body {
+	background-color: #1b1b1b;
+	padding: 1.25rem;
+}
+
+#animationList {
+	display: grid;
+
+	button {
+		border-top: 2px solid #0b0b0b;
+	}
+	button:last-child {
+		border-bottom: 2px solid #0b0b0b;
+	}
+}
+
+#gettingStarted {
+	display: grid;
+	gap: 1.25rem;
+}
+
+#rive-doc {
+	display: block;
+	text-align: center;
+	width: 100%;
+	color: #fff;
+	background-color: #222;
+	text-decoration: underline;
+	padding: 1rem;
+	&:hover {
+		background-color: #333;
+	}
 }
