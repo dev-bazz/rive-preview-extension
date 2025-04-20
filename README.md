@@ -1,6 +1,6 @@
 # Rive for VsCode
 
-<video width="640" poster="preview.png"  src="https://github.com/dev-bazz/rive-preview-extension/blob/main/rive.mov" height="360" controls>
+<video width="640" poster="preview.png"  src="./rive.mp4" height="360" controls>
 </video>
 This extension provides a seamless way to preview Rive files directly
 within the Visual Studio Code (VSCode) editor. With this extension,

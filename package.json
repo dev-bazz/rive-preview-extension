@@ -7,7 +7,7 @@
   "engines": {
     "vscode": "^1.74.0"
   },
-  "icon": "./preview.png",
+  "icon": "./icon.png",
   "categories": [
     "Visualization",
     "Other"
