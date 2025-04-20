@@ -1,12 +1,19 @@
-# Rive Preview
+# Rive for VsCode
 
-This is an extension to preview [Rive](https://rive.app) files without leaving VSCode editor.
+<video width="640" poster="./preview.png"  src="./rive.mov" height="360" controls>
+</video>
+This extension provides a
+seamless way to preview Rive files directly within the Visual Studio
+Code (VSCode) editor. With this extension, you can view your Rive
+designs without having to leave the editor, streamlining your workflow
+and improving productivity.
 
-This extension is build over [Rive Wen(JS)](https://help.rive.app/runtimes/overview/web-js) runtime library.
+## Key Features
 
-![Preview](https://github.com/yeikel16/rive-preview-extension/blob/main/preview.GIF)
+Preview Rive files (.riv) within the VSCode editor No need to leave
+the editor to view your designs Easy to use and integrates seamlessly
+with your existing VSCode workflow
 
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+This extension is build over
+[Rive Wen(JS)](https://help.rive.app/runtimes/overview/web-js) runtime
+library.
