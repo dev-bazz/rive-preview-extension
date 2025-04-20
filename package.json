@@ -1,7 +1,7 @@
 {
   "name": "rive-for-vscode",
   "displayName": "Rive for VSCode ",
-  "description": "Show a preview the Rive (.riv) files",
+  "description": "This extension provides a seamless way to preview Rive files directly within the Visual Studio Code (VSCode) editor.",
   "version": "0.0.2",
   "publisher": "BaZz",
   "engines": {
