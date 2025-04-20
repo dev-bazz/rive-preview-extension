@@ -15,5 +15,4 @@ the editor to view your designs Easy to use and integrates seamlessly
 with your existing VSCode workflow
 
 This extension is build over
-[Rive Wen(JS)](https://help.rive.app/runtimes/overview/web-js) runtime
-library.
+[Rive Wen(JS)](https://help.rive.app/runtimes/overview/web-js)
