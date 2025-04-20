@@ -196,6 +196,13 @@
 	border: none;
 	cursor: pointer;
 }
+#active {
+	padding: 1rem;
+	background-color: #1f3bb800;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
 #animationControls {
 	display: flex;
 	flex-direction: column;

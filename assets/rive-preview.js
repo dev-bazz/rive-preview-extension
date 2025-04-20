@@ -13,7 +13,10 @@ function initializeRive(webviewUri) {
 
 			const animationControlsDiv =
 				document.getElementById('animationList');
-			for (const animation of contentsRive.artboards[0].animations) {
+			for (const [
+				index,
+				animation,
+			] of contentsRive.artboards[0].animations.entries()) {
 				const button = document.createElement('button');
 				button.textContent = animation;
 				button.addEventListener('click', () => {
