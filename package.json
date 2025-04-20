@@ -1,24 +1,24 @@
 {
-  "name": "rive-preview",
-  "displayName": "Rive Preview",
+  "name": "rive-for-vscode",
+  "displayName": "Rive for VSCode ",
   "description": "Show a preview the Rive (.riv) files",
   "version": "0.0.2",
   "publisher": "BaZz",
   "engines": {
     "vscode": "^1.74.0"
   },
-  "icon": "icon.png",
+  "icon": "./preview.png",
   "categories": [
     "Visualization",
     "Other"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yeikel16/rive-preview-extension.git"
+    "url": "https://github.com/dev-bazz/rive-preview-extension"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yeikel16/rive-preview-extension"
+    "url": "https://github.com/dev-bazz/rive-preview-extension"
   },
   "main": "./out/extension.js",
   "activationEvents": [],

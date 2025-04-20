@@ -2,11 +2,10 @@
 
 <video width="640" poster="preview.png"  src="https://github.com/dev-bazz/rive-preview-extension/blob/main/rive.mov" height="360" controls>
 </video>
-This extension provides a
-seamless way to preview Rive files directly within the Visual Studio
-Code (VSCode) editor. With this extension, you can view your Rive
-designs without having to leave the editor, streamlining your workflow
-and improving productivity.
+This extension provides a seamless way to preview Rive files directly
+within the Visual Studio Code (VSCode) editor. With this extension,
+you can view your Rive designs without having to leave the editor,
+streamlining your workflow and improving productivity.
 
 ## Key Features
 
@@ -16,3 +15,6 @@ with your existing VSCode workflow
 
 This extension is build over
 [Rive Wen(JS)](https://help.rive.app/runtimes/overview/web-js)
+
+A fork from the rive-preview extension by
+yeikel16/rive-preview-extension
