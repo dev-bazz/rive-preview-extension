@@ -65,6 +65,8 @@
 		min-height: 100vh;
 		text-rendering: optimizeSpeed;
 		line-height: 1.5;
+
+		width: 100%;
 		font-family: var(
 				--font,
 				system-ui,
@@ -224,6 +226,15 @@
 	max-width: 1280px;
 	margin-inline: auto;
 	gap: 1.5rem;
+}
+
+@media screen and (width <= 1100px) {
+	#riveGrid {
+		grid-template-columns: 1fr;
+	}
+	#canvas {
+		width: 100%;
+	}
 }
 #animationHeader {
 	display: flex;

@@ -14,3 +14,9 @@ recommendations on how to structure this file.
 
 - file extension icon for .riv
 - .riv preview in vscode
+
+## [0.0.4] - 2025-04-21
+
+## Improved
+
+- Media query for smaller screens
