@@ -20,3 +20,8 @@ recommendations on how to structure this file.
 ## Improved
 
 - Media query for smaller screens
+
+## [0.0.5] - 2025-11-12
+- Update UI to match user styles
+- better responsiveness
+- reduced file size
