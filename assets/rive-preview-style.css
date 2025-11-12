@@ -300,7 +300,7 @@ body {
 	display: block;
 	text-align: center;
 	width: 100%;
-	color: #fff !important;
+	color: var(--vscode-button-secondaryForeground, #fff) !important;
 	background-color: var(--vscode-button-secondaryBackground, #222);
 	text-decoration: none;
 	padding: 1rem;
