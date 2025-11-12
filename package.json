@@ -67,8 +67,8 @@
     "lint": "eslint \"src/**/*.ts\"",
     "watch": "tsc -w -p ./",
     "build": "npm run lint && npm run compile",
-    "package": "npm run build && vsce package",
-    "publish": "npm run build && vsce publish"
+    "package": "vsce package",
+    "publish": "vsce publish"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
