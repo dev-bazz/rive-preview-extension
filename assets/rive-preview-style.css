@@ -299,7 +299,7 @@ body {
 	display: block;
 	text-align: center;
 	width: 100%;
-	color: var(--vscode-textLink-foreground, #4fc1ff);
+	color: var(--vscode-textLink-foreground, #fff);
 	background-color: var(--vscode-button-secondaryBackground, #222);
 	text-decoration: none;
 	padding: 1rem;

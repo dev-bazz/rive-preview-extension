@@ -1,5 +1,5 @@
-import * as vscode from 'vscode';
-import { Disposable, disposeAll } from './dispose';
+import * as vscode from "vscode";
+import { Disposable, disposeAll } from "./dispose";
 
 interface RiveDocumentDelegate {
 	getFileData(): Promise<Uint8Array>;
@@ -8,10 +8,7 @@ interface RiveDocumentDelegate {
 /**
  * Define the document (the data model) used for Rive files.
  */
-class RiveDocument
-	extends Disposable
-	implements vscode.CustomDocument
-{
+class RiveDocument extends Disposable implements vscode.CustomDocument {
 	static async create(
 		uri: vscode.Uri,
 		backupId: string | undefined,
@@ -19,13 +16,13 @@ class RiveDocument
 	): Promise<RiveDocument | PromiseLike<RiveDocument>> {
 		// If we have a backup, read that. Otherwise read the resource from the workspace
 		const dataFile =
-			typeof backupId === 'string' ? vscode.Uri.parse(backupId) : uri;
+			typeof backupId === "string" ? vscode.Uri.parse(backupId) : uri;
 		const fileData = await RiveDocument.readFile(dataFile);
 		return new RiveDocument(uri, fileData, delegate);
 	}
 
 	private static async readFile(uri: vscode.Uri): Promise<Uint8Array> {
-		if (uri.scheme === 'untitled') {
+		if (uri.scheme === "untitled") {
 			return new Uint8Array();
 		}
 		return new Uint8Array(await vscode.workspace.fs.readFile(uri));
@@ -112,9 +109,7 @@ class RiveDocument
 	/**
 	 * Called by VS Code when the user calls `revert` on a document.
 	 */
-	async revert(
-		_cancellation: vscode.CancellationToken,
-	): Promise<void> {
+	async revert(_cancellation: vscode.CancellationToken): Promise<void> {
 		const diskContent = await RiveDocument.readFile(this.uri);
 		this._documentData = diskContent;
 	}
@@ -149,9 +144,7 @@ class RiveDocument
 export class RivePreviewProvider
 	implements vscode.CustomEditorProvider<RiveDocument>
 {
-	public static register(
-		context: vscode.ExtensionContext,
-	): vscode.Disposable {
+	public static register(context: vscode.ExtensionContext): vscode.Disposable {
 		return vscode.window.registerCustomEditorProvider(
 			RivePreviewProvider.viewType,
 			new RivePreviewProvider(context),
@@ -167,7 +160,7 @@ export class RivePreviewProvider
 		);
 	}
 
-	private static readonly viewType = 'rive.rivePreview';
+	private static readonly viewType = "rive.rivePreview";
 
 	/**
 	 * Tracks all known webviews
@@ -192,12 +185,12 @@ export class RivePreviewProvider
 						this.webviews.get(document.uri),
 					);
 					if (!webviewsForDocument.length) {
-						throw new Error('Could not find webview to save for');
+						throw new Error("Could not find webview to save for");
 					}
 					const panel = webviewsForDocument[0];
 					const response = await this.postMessageWithResponse<number[]>(
 						panel,
-						'getFileData',
+						"getFileData",
 						{},
 					);
 					return new Uint8Array(response);
@@ -240,10 +233,9 @@ export class RivePreviewProvider
 		);
 	}
 
-	private readonly _onDidChangeCustomDocument =
-		new vscode.EventEmitter<
-			vscode.CustomDocumentEditEvent<RiveDocument>
-		>();
+	private readonly _onDidChangeCustomDocument = new vscode.EventEmitter<
+		vscode.CustomDocumentEditEvent<RiveDocument>
+	>();
 	public readonly onDidChangeCustomDocument =
 		this._onDidChangeCustomDocument.event;
 
@@ -290,39 +282,31 @@ export class RivePreviewProvider
 		const scriptUri = webview.asWebviewUri(
 			vscode.Uri.joinPath(
 				this._context.extensionUri,
-				'assets',
-				'rive-preview.js',
+				"assets",
+				"rive-preview.js",
 			),
 		);
 
 		const styleRivePreviewtUri = webview.asWebviewUri(
 			vscode.Uri.joinPath(
 				this._context.extensionUri,
-				'assets',
-				'rive-preview-style.css',
+				"assets",
+				"rive-preview-style.css",
 			),
 		);
 
 		const scriptRiveUri = webview.asWebviewUri(
-			vscode.Uri.joinPath(
-				this._context.extensionUri,
-				'assets',
-				'vehicles.riv',
-			),
+			vscode.Uri.joinPath(this._context.extensionUri, "assets", "vehicles.riv"),
 		);
 		const assetsRiveCanvasUri = webview.asWebviewUri(
 			vscode.Uri.joinPath(
 				this._context.extensionUri,
-				'assets',
-				'rive-canvas-v2.9.1.js',
+				"assets",
+				"rive-canvas-v2.9.1.js",
 			),
 		);
 		const imgFile = webview.asWebviewUri(
-			vscode.Uri.joinPath(
-				this._context.extensionUri,
-				'assets',
-				'rive.png',
-			),
+			vscode.Uri.joinPath(this._context.extensionUri, "assets", "rive.png"),
 		);
 		return /*html */ `
         <!DOCTYPE html>
@@ -372,10 +356,7 @@ export class RivePreviewProvider
 	}
 
 	private _requestId = 1;
-	private readonly _callbacks = new Map<
-		number,
-		(response: any) => void
-	>();
+	private readonly _callbacks = new Map<number, (response: any) => void>();
 
 	private postMessageWithResponse<R = unknown>(
 		panel: vscode.WebviewPanel,
