@@ -309,58 +309,58 @@ export class RivePreviewProvider
 			vscode.Uri.joinPath(this._context.extensionUri, "assets", "rive.png"),
 		);
 		return /*html */ `
-        <!DOCTYPE html>
-    <html>
+	<!DOCTYPE html>
+  <html>
 
-    <head>
-      <title>Rive Hello World</title>
-      <link href="${styleRivePreviewtUri}" rel="stylesheet" />
-    </head>
+  <head>
+  	<title>Rive Hello World</title>
+  	<link href="${styleRivePreviewtUri}" rel="stylesheet" />
+  </head>
 
-    <body>
+  <body>
 
-      <div id="riveGrid">
-        <canvas id="canvas" width="400" height="400"></canvas>
-        <div id="animationControls">
-          <div id="animationHeader"> <img width="24px" height="26px" src="${imgFile}" />
-            <h2>Animations</h2>
-          </div>
+  	<div id="riveGrid">
+  		<canvas id="canvas" width="400" height="400"></canvas>
+  		<div id="animationControls">
+  			<div id="animationHeader"> <img width="24px" height="26px" src="${imgFile}" />
+  				<h2>Animations</h2>
+  			</div>
 
-          <div id="animationList"></div>
+  			<div id="animationList"></div>
 
-          <div id="riveRuntime">
-            <div id="gettingStarted">
-              <header>
-                <h2>Getting Started with the Rive Runtimes</h2>
-                <p>Run Rive on your platform of choice.</p>
-              </header>
-              <p>The Rive runtimes are open-source libraries that allow you to load and control your animations in apps,
-                games, and websites. Dive into each of the subpages to get started!</p>
-              <a id="rive-doc" href="https://rive.app/docs/runtimes/getting-started">View All RunTime</a>
-            </div>
+  			<div id="riveRuntime">
+  				<div id="gettingStarted">
+  					<header>
+  						<h2>Getting Started with the Rive Runtimes</h2>
+  						<p>Run Rive on your platform of choice.</p>
+  					</header>
+  					<p>The Rive runtimes are open-source libraries that allow you to load and control your animations in apps,
+  						games, and websites. Dive into each of the subpages to get started!</p>
+  					<a id="rive-doc" href="https://rive.app/docs/runtimes/getting-started">View All RunTime</a>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
 
-          </div>
+  	<script src="${assetsRiveCanvasUri}"></script>
+  	<script src="${scriptUri}"></script>
+  	<script>
+  		const webviewUri = "${webview.asWebviewUri(filePath)}";
+  		initializeRive(webviewUri);
+  	</script>
+  </body>
 
-        </div>
-      </div>
-
-      <script src="${assetsRiveCanvasUri}"></script>
-      <script src="${scriptUri}"></script>
-      <script>
-        const webviewUri = "${webview.asWebviewUri(filePath)}";
-        initializeRive(webviewUri);
-      </script>
-    </body>
-
-    </html>`;
+  </html>`;
 	}
 
 	private _requestId = 1;
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	private readonly _callbacks = new Map<number, (response: any) => void>();
 
 	private postMessageWithResponse<R = unknown>(
 		panel: vscode.WebviewPanel,
 		type: string,
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		body: any,
 	): Promise<R> {
 		const requestId = this._requestId++;

@@ -293,13 +293,14 @@ body {
 #gettingStarted {
 	display: grid;
 	gap: 1.25rem;
+	padding-bottom: 1.5rem;
 }
 
 #rive-doc {
 	display: block;
 	text-align: center;
 	width: 100%;
-	color: var(--vscode-textLink-foreground, #fff);
+	color: #fff !important;
 	background-color: var(--vscode-button-secondaryBackground, #222);
 	text-decoration: none;
 	padding: 1rem;
